@@ -8,11 +8,10 @@
  * <p>
  * Key classes include:
  * <ul>
- * <li>{@link io.github.astrapisixtynine.fury.ObjectToBytesExtensions}: Provides methods to serialize Java
- * objects into byte arrays</li>
- * <li>{@link io.github.astrapi69.fury.BytesToObjectExtensions}: Provides methods to deserialize
- * byte arrays back into Java objects</li>
+ * <li>{@link io.github.astrapisixtynine.fury.ObjectToBytesExtensions}: Provides methods to
+ * serialize Java objects into byte arrays</li>
+ * <li>{@link io.github.astrapisixtynine.fury.BytesToObjectExtensions}: Provides methods to
+ * deserialize byte arrays back into Java objects</li>
  * </ul>
- * </p>
  */
 package io.github.astrapisixtynine.fury;

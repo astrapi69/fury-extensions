@@ -34,8 +34,15 @@ import lombok.NonNull;
 /**
  * Utility class for converting Java objects to byte arrays
  */
-public class ObjectToBytesExtensions
+public final class ObjectToBytesExtensions
 {
+
+	/**
+	 * Private constructor to prevent instantiation
+	 */
+	private ObjectToBytesExtensions()
+	{
+	}
 
 	/**
 	 * Converts an object to a byte array
