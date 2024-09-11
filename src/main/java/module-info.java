@@ -18,10 +18,10 @@
  * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-module fury.extensions.main
+module io.github.astrapisixtynine.fury.extensions
 {
 	requires static lombok;
 	requires org.apache.fury.core;
 
-	exports io.github.astrapi69.fury;
+	exports io.github.astrapisixtynine.fury;
 }

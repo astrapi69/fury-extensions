@@ -22,7 +22,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.fury;
+package io.github.astrapisixtynine.fury;
 
 import java.util.Arrays;
 
@@ -32,49 +32,48 @@ import org.apache.fury.config.Language;
 import lombok.NonNull;
 
 /**
- * Utility class for converting byte arrays to Java objects
+ * Utility class for converting Java objects to byte arrays
  */
-public class BytesToObjectExtensions
+public class ObjectToBytesExtensions
 {
 
 	/**
-	 * Converts a byte array to an object
+	 * Converts an object to a byte array
 	 *
-	 * @param bytes
-	 *            the byte array to deserialize
+	 * @param object
+	 *            the object to be serialized
 	 * @param registerClasses
-	 *            classes that need to be registered for deserialization
+	 *            classes that need to be registered for serialization
 	 * @param <T>
-	 *            the type of the deserialized object
-	 * @return the deserialized object
+	 *            the type of the object to be serialized
+	 * @return the serialized byte array
 	 */
-	public static <T> T toObject(final byte[] bytes, Class<?>... registerClasses)
+	public static <T> byte[] toBytes(final @NonNull T object, final Class<?>... registerClasses)
 	{
 		Fury fury = Fury.builder().withLanguage(Language.JAVA).build();
-		return toObject(fury, bytes, registerClasses);
+		return toBytes(fury, object, registerClasses);
 	}
 
 	/**
-	 * Converts a byte array to an object using a specific Fury instance
+	 * Converts an object to a byte array using a specific Fury instance
 	 *
 	 * @param fury
-	 *            the Fury instance used for deserialization
-	 * @param bytes
-	 *            the byte array to deserialize
+	 *            the Fury instance used for serialization
+	 * @param object
+	 *            the object to be serialized
 	 * @param registerClasses
-	 *            classes that need to be registered for deserialization
+	 *            classes that need to be registered for serialization
 	 * @param <T>
-	 *            the type of the deserialized object
-	 * @return the deserialized object
+	 *            the type of the object to be serialized
+	 * @return the serialized byte array
 	 */
-	@SuppressWarnings("unchecked")
-	public static <T> T toObject(final @NonNull Fury fury, final byte[] bytes,
+	public static <T> byte[] toBytes(final @NonNull Fury fury, final @NonNull T object,
 		final Class<?>... registerClasses)
 	{
 		if (registerClasses != null && registerClasses.length > 0)
 		{
 			Arrays.stream(registerClasses).forEach(fury::register);
 		}
-		return (T)fury.deserialize(bytes);
+		return fury.serialize(object);
 	}
 }
