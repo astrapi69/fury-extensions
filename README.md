@@ -1,34 +1,66 @@
-
 <div style="text-align: center">
 
-[![Java CI with Gradle](https://github.com/astrapi69/java-library-template/actions/workflows/gradle.yml/badge.svg)](https://github.com/astrapi69/java-library-template/actions/workflows/gradle.yml)
-[![Coverage Status](https://codecov.io/gh/astrapi69/java-library-template/branch/develop/graph/badge.svg)](https://codecov.io/gh/astrapi69/java-library-template)
-[![Open Issues](https://img.shields.io/github/issues/astrapi69/java-library-template.svg?style=flat)](https://github.com/astrapi69/java-library-template/issues)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/java-library-template/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/java-library-template)
-[![Javadocs](http://www.javadoc.io/badge/io.github.astrapi69/java-library-template.svg)](http://www.javadoc.io/doc/io.github.astrapi69/java-library-template)
+[![Java CI with Gradle](https://github.com/astrapi69/fury-extensions/actions/workflows/gradle.yml/badge.svg)](https://github.com/astrapi69/fury-extensions/actions/workflows/gradle.yml)
+[![Coverage Status](https://codecov.io/gh/astrapi69/fury-extensions/branch/develop/graph/badge.svg)](https://codecov.io/gh/astrapi69/fury-extensions)
+[![Open Issues](https://img.shields.io/github/issues/astrapi69/fury-extensions.svg?style=flat)](https://github.com/astrapi69/fury-extensions/issues)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/fury-extensions/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/fury-extensions)
+[![Javadocs](http://www.javadoc.io/badge/io.github.astrapi69/fury-extensions.svg)](http://www.javadoc.io/doc/io.github.astrapi69/fury-extensions)
 [![MIT License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Donate](https://img.shields.io/badge/donate-❤-ff2244.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GVBTWLRAZ7HB8)
-[![Hits Of Code](https://hitsofcode.com/github/astrapi69/java-library-template?branch=develop)](https://hitsofcode.com/github/astrapi69/java-library-template/view?branch=develop)
+[![Hits Of Code](https://hitsofcode.com/github/astrapi69/fury-extensions?branch=develop)](https://hitsofcode.com/github/astrapi69/fury-extensions/view?branch=develop)
 
 </div>
 
-# Overview
+# Fury Serialization Extensions
 
-Template project for create java library projects.  A small documentation how to use this template project in in the
-[wiki](https://github.com/astrapi69/java-library-template/wiki)
+## Overview
+
+This project provides utility classes that simplify the process of serializing and deserializing Java objects using the
+Fury serialization library. The extensions offer an easy-to-use API for converting objects to byte arrays and vice
+versa, with support for registering custom classes during serialization.
+Key Features
+
+* Object to Byte Conversion: Convert any Java object to a byte array with the ObjectToBytesExtensions class.
+* Byte to Object Conversion: Deserialize byte arrays back to Java objects using the BytesToObjectExtensions class.
+* Class Registration Support: Register custom classes for serialization and deserialization dynamically.
+* Secure and Flexible: Supports flexible configuration for secure and non-secure serialization modes.
+*
+
+Key Classes
+
+* ObjectToBytesExtensions: Provides methods to serialize Java objects into byte arrays.
+* BytesToObjectExtensions: Provides methods to deserialize byte arrays back into Java objects.
+
+## Usage
+
+Example: Serialize and Deserialize an Object
+
+```java
+
+Employee employee = new Employee(1L, "John", "Doe", Gender.MALE);
+
+// Serialize the employee object to byte array
+byte[] bytes = ObjectToBytesExtensions.toBytes(employee, Employee.class, Person.class, Gender.class);
+
+// Deserialize the byte array back to an employee object
+Employee deserializedEmployee = BytesToObjectExtensions.toObject(bytes, Employee.class, Person.class, Gender.class);
+
+assertEquals(employee, deserializedEmployee);
+```
+
+## Parameterized Tests
+
+The project includes JUnit 5 test classes that demonstrate serialization and deserialization functionality, along with
+parameterized tests using CSV data.
 
 > Please support this project by simply putting a Github <!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/astrapi69/java-library-template" data-icon="octicon-star" aria-label="Star astrapi69/java-library-template on GitHub">Star ⭐</a>
+<a class="github-button" href="https://github.com/astrapi69/fury-extensions" data-icon="octicon-star" aria-label="Star astrapi69/fury-extensions on GitHub">
+> Star ⭐</a>
 >
 > Share this library with friends on Twitter and everywhere else you can
 >
-> If you love this project [![donation](https://img.shields.io/badge/donate-❤-ff2244.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GVBTWLRAZ7HB8)
-
-# Template from this project
-
-You can derive your java library project from this you can easily and adapt to your specific project if you follow the
-instruction from
-this [medium blog](https://asterios-raptis.medium.com/new-github-template-repository-feature-ec09afe261b8)
+> If you love this
+> project [![donation](https://img.shields.io/badge/donate-❤-ff2244.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GVBTWLRAZ7HB8)
 
 ## Note
 
@@ -36,7 +68,7 @@ No animals were harmed in the making of this library.
 
 ## License
 
-The source code comes under the liberal MIT License, making java-library-template great for all types of applications.
+The source code comes under the liberal MIT License, making fury-extensions great for all types of applications.
 
 ## Import dependencies to your project
 
@@ -46,27 +78,27 @@ The source code comes under the liberal MIT License, making java-library-templat
 ## gradle dependency
 
 Replace the variable ${latestVersion} with the current latest
-version: [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/java-library-template/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/java-library-template)
+version: [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/fury-extensions/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/fury-extensions)
 
 You can first define the version in the ext section and add than the following gradle dependency to
-your project `build.gradle` if you want to import the core functionality of java-library-template:
+your project `build.gradle` if you want to import the core functionality of fury-extensions:
 
 define version in file gradle.properties
 
 ```
-javaLibraryTemplateVersion=${latestVersion}
+furyExtensionsVersion=${latestVersion}
 ```
 
 or in build.gradle ext area
 
 ```
-    javaLibraryTemplateVersion = "${latestVersion}"
+    furyExtensionsVersion = "${latestVersion}"
 ```
 
 then add the dependency to the dependencies area
 
 ```
-    implementation("io.github.astrapi69:java-library-template:$javaLibraryTemplateVersion")
+    implementation("io.github.astrapi69:fury-extensions:$furyExtensionsVersion")
 ```
 
 # with new libs.versions.toml file
@@ -75,16 +107,16 @@ If you use the new libs.versions.toml file for new automatic catalog versions up
 
 ```
 [versions]
-java-library-template-version= "${latestVersion}"
+fury-extensions-version= "${latestVersion}"
 
 [libraries]
-java-library-template = { module = "io.github.astrapi69:java-library-template", version.ref = "java-library-template-version" }
+fury-extensions = { module = "io.github.astrapi69:fury-extensions", version.ref = "fury-extensions-version" }
 ```
 
 then add the dependency to the dependencies area
 
 ```
-    implementation libs.java.library.template
+    implementation libs.fury.extensions
 ```
 
 </details>
@@ -96,11 +128,11 @@ then add the dependency to the dependencies area
 
 Maven dependency is now on sonatype.
 Check
-out [sonatype repository](https://oss.sonatype.org/index.html#nexus-search;gav~io.github.astrapi69~java-library-template~~~)
+out [sonatype repository](https://oss.sonatype.org/index.html#nexus-search;gav~io.github.astrapi69~fury-extensions~~~)
 for latest snapshots and releases.
 
 Add the following maven dependency to your project `pom.xml` if you want to import the core
-functionality of java-library-template:
+functionality of fury-extensions:
 
 Then you can add the dependency to your dependencies:
 
@@ -108,8 +140,8 @@ Then you can add the dependency to your dependencies:
         ...
 
 ```xml
-        <!-- java-library-template version -->
-<java-library-template.version>${latestVersion}</java-library-template.version>
+        <!-- fury-extensions version -->
+<fury-extensions.version>${latestVersion}</fury-extensions.version>
 ```
 
         ...
@@ -119,11 +151,11 @@ Then you can add the dependency to your dependencies:
         ...
 
 ```xml
-            <!-- java-library-template DEPENDENCY -->
+            <!-- fury-extensions DEPENDENCY -->
 <dependency>
     <groupId>io.github.astrapi69</groupId>
-    <artifactId>java-library-template</artifactId>
-    <version>${java-library-template.version}</version>
+    <artifactId>fury-extensions</artifactId>
+    <version>${fury-extensions.version}</version>
 </dependency>
 ```
 
@@ -138,7 +170,7 @@ Then you can add the dependency to your dependencies:
 
 ## 📸 Snapshots
 
-[![Snapshot](https://img.shields.io/badge/dynamic/xml?url=https://oss.sonatype.org/service/local/repositories/snapshots/content/io/github/astrapi69/java-library-template/maven-metadata.xml&label=snapshot&color=red&query=.//versioning/latest)](https://oss.sonatype.org/content/repositories/snapshots/io/github/astrapi69/java-library-template/)
+[![Snapshot](https://img.shields.io/badge/dynamic/xml?url=https://oss.sonatype.org/service/local/repositories/snapshots/content/io/github/astrapi69/fury-extensions/maven-metadata.xml&label=snapshot&color=red&query=.//versioning/latest)](https://oss.sonatype.org/content/repositories/snapshots/io/github/astrapi69/fury-extensions/)
 
 This section describes how to import snapshot versions into your project.
 Add the following code snippet to your gradle file in the repositories section:
@@ -232,7 +264,7 @@ or over the donation buttons at the top.
 
 ## Semantic Versioning
 
-The versions of java-library-template are maintained with the Semantic Versioning guidelines.
+The versions of fury-extensions are maintained with the Semantic Versioning guidelines.
 
 Release version numbers will be incremented in the following format:
 
@@ -247,11 +279,11 @@ You can donate or contribute solve issues or pull request. Every support are wel
 
 ## Want to Help and improve it? ###
 
-The source code for java-library-template are on GitHub. Please feel free to fork and send pull requests!
+The source code for fury-extensions are on GitHub. Please feel free to fork and send pull requests!
 
-Create your own fork of [astrapi69/java-library-template/fork](https://github.com/astrapi69/java-library-template/fork)
+Create your own fork of [astrapi69/fury-extensions/fork](https://github.com/astrapi69/fury-extensions/fork)
 
-To share your changes, [submit a pull request](https://github.com/astrapi69/java-library-template/pull/new/develop).
+To share your changes, [submit a pull request](https://github.com/astrapi69/fury-extensions/pull/new/develop).
 
 Don't forget to add new units tests on your changes.
 
@@ -262,28 +294,28 @@ improvements.
 
 ## Contacting the Developers
 
-Do not hesitate to contact the java-library-template developers with your questions, concerns, comments, bug reports, or
+Do not hesitate to contact the fury-extensions developers with your questions, concerns, comments, bug reports, or
 feature requests.
 
 - Feature requests, questions and bug reports can be reported at
-  the [issues page](https://github.com/astrapi69/java-library-template/issues).
+  the [issues page](https://github.com/astrapi69/fury-extensions/issues).
 
 ## Credits
 
-|**Nexus Sonatype repositories**|
-|     :---:      |
-|[![sonatype repository](https://img.shields.io/nexus/r/https/oss.sonatype.org/io.github.astrapi69/java-library-template.svg?style=for-the-badge)](https://oss.sonatype.org/index.html#nexus-search;gav~io.github.astrapi69~java-library-template~~~)|
-|Special thanks to [sonatype repository](https://www.sonatype.com) for providing a free maven repository service for open source projects|
-|     <img width=1000/>     |
+|                                                                                                     **Nexus Sonatype repositories**                                                                                                      |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| [![sonatype repository](https://img.shields.io/nexus/r/https/oss.sonatype.org/io.github.astrapi69/fury-extensions.svg?style=for-the-badge)](https://oss.sonatype.org/index.html#nexus-search;gav~io.github.astrapi69~fury-extensions~~~) |
+|                                                 Special thanks to [sonatype repository](https://www.sonatype.com) for providing a free maven repository service for open source projects                                                 |
+|                                                                                                            <img width=1000/>                                                                                                             |
 
-|**codecov.io**|
-|     :---:      |
-|[![Coverage Status](https://codecov.io/gh/astrapi69/java-library-template/branch/develop/graph/badge.svg)](https://codecov.io/gh/astrapi69/java-library-template)|
-|Special thanks to [codecov.io](https://codecov.io) for providing a free code coverage for open source projects|
-|     <img width=1000/>     |
+|                                                                    **codecov.io**                                                                     |
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------:|
+| [![Coverage Status](https://codecov.io/gh/astrapi69/fury-extensions/branch/develop/graph/badge.svg)](https://codecov.io/gh/astrapi69/fury-extensions) |
+|                    Special thanks to [codecov.io](https://codecov.io) for providing a free code coverage for open source projects                     |
+|                                                                   <img width=1000/>                                                                   |
 
-|**javadoc.io**|
-|     :---:      |
-|[![Javadocs](http://www.javadoc.io/badge/io.github.astrapi69/java-library-template.svg)](http://www.javadoc.io/doc/io.github.astrapi69/java-library-template)|
-|Special thanks to [javadoc.io](http://www.javadoc.io) for providing a free javadoc documentation for open source projects|
-|     <img width=1000/>     |
+|                                                                  **javadoc.io**                                                                   |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------:|
+| [![Javadocs](http://www.javadoc.io/badge/io.github.astrapi69/fury-extensions.svg)](http://www.javadoc.io/doc/io.github.astrapi69/fury-extensions) |
+|             Special thanks to [javadoc.io](http://www.javadoc.io) for providing a free javadoc documentation for open source projects             |
+|                                                                 <img width=1000/>                                                                 |
